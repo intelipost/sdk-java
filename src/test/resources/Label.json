@@ -1,0 +1,5 @@
+{
+  "order_number" : 123,
+  "shipment_order_volume_number" : 123123,
+  "label_url" : "http://foo.bar/foo.pdf"
+}

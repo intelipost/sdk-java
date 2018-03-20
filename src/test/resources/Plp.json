@@ -1,0 +1,14 @@
+{
+  "status": "OK",
+  "messages": [
+    {
+      "type": "SUCCESS",
+      "text": "Operação realizada com sucesso.",
+      "key": "pre.shipment.list.scheduled"
+    }
+  ],
+  "content": {},
+  "time": "413.3 ms",
+  "timezone": "America/Sao_Paulo",
+  "locale": "pt_BR"
+}

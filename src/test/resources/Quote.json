@@ -1,0 +1,80 @@
+{
+  "origin_zip_code": "4401160",
+  "destination_zip_code": "7011010",
+  "platform": "quote_by_product",
+  "additional_information": null,
+  "identification": null,
+  "quoting_mode": "DYNAMIC_BOX_ALL_ITEMS",
+  "id": 122,
+  "client_id": 1,
+  "created": 1521580092691,
+  "created_iso": "2018-03-20T18:08:12.691-03:00",
+  "delivery_options": [
+    {
+      "delivery_method_id": 1,
+      "delivery_estimate_business_days": 15,
+      "provider_shipping_cost": 18.23,
+      "final_shipping_cost": 18.23,
+      "description": "XPTO - Correios (PAC)",
+      "delivery_note": null,
+      "removed_by_return_modes": false,
+      "removed_by_quote_rules": false,
+      "cubic_weight": 0.047,
+      "delivery_method_type": "STANDARD",
+      "delivery_method_name": "Correios PAC",
+      "logistic_provider_name": "Correios",
+      "scheduling_enabled": false,
+      "shown_to_client": true,
+      "pickup_enabled": false
+    },
+    {
+      "delivery_method_id": 4,
+      "delivery_estimate_business_days": 9,
+      "provider_shipping_cost": 27.25,
+      "final_shipping_cost": 27.25,
+      "description": "Total Express",
+      "delivery_note": null,
+      "removed_by_return_modes": false,
+      "removed_by_quote_rules": false,
+      "cubic_weight": 0.048,
+      "delivery_method_type": "STANDARD",
+      "delivery_method_name": "Total Express",
+      "logistic_provider_name": "Total",
+      "scheduling_enabled": false,
+      "shown_to_client": true,
+      "pickup_enabled": false
+    },
+    {
+      "delivery_method_id": 2,
+      "delivery_estimate_business_days": 6,
+      "provider_shipping_cost": 35.77,
+      "final_shipping_cost": 35.77,
+      "description": "XPTO - Correios (Sedex)",
+      "delivery_note": null,
+      "removed_by_return_modes": false,
+      "removed_by_quote_rules": false,
+      "cubic_weight": 0.047,
+      "delivery_method_type": "STANDARD",
+      "delivery_method_name": "Correios Sedex",
+      "logistic_provider_name": "Correios",
+      "scheduling_enabled": false,
+      "shown_to_client": true,
+      "pickup_enabled": false
+    }
+  ],
+  "volumes": [
+    {
+      "weight": 19,
+      "cost_of_goods": 63.96,
+      "width": 10,
+      "height": 17.4,
+      "length": 17.4,
+      "description": "all items in one box",
+      "sku_groups_ids": [],
+      "product_category": "",
+      "quantity_of_items": 4,
+      "volume_type": "BOX"
+    }
+  ],
+  "cached": false
+}
