@@ -18,13 +18,6 @@ public class JsonLoader {
             objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
             objectMapper.findAndRegisterModules();
 
-            /*
-            *
-            *    ObjectMapper mapper = new ObjectMapper();
-    mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-    mapper.setDateFormat(new ISO8601DateFormat());
-            * */
-
             Path path = get(JsonLoader.class.getResource(name).toURI());
             return objectMapper.readValue(readAllBytes(path), type);
         } catch (Exception e) {
