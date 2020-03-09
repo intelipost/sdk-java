@@ -3,6 +3,7 @@ package br.com.intelipost.sdk.resource;
 import br.com.intelipost.sdk.request.QuoteRequest;
 import br.com.intelipost.sdk.response.QuoteResponse;
 import br.com.intelipost.sdk.response.Response;
+import org.apache.http.HttpHost;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,6 +13,9 @@ public class QuoteResource extends Resource<QuoteRequest, QuoteResponse> {
 
     public QuoteResource(String apiKey) {
         super(apiKey);
+    }
+    public QuoteResource(String apiKey, HttpHost httpHost) {
+        super(apiKey, httpHost);
     }
 
     public QuoteResponse doShippingQuote(QuoteRequest requestBody) {

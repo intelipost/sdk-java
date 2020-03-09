@@ -5,3 +5,5 @@ rebel.xml
 /.settings
 /target
 *.orig
+.idea
+.factorypath

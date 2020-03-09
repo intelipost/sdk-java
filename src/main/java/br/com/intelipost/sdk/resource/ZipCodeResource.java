@@ -2,6 +2,7 @@ package br.com.intelipost.sdk.resource;
 
 import br.com.intelipost.sdk.response.Response;
 import br.com.intelipost.sdk.response.ZipCodeResponse;
+import org.apache.http.HttpHost;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,6 +13,11 @@ public class ZipCodeResource extends Resource<String, ZipCodeResponse> {
     public ZipCodeResource(String apiKey) {
         super(apiKey);
     }
+
+    public ZipCodeResource(String apiKey, HttpHost httpHost) {
+        super(apiKey, httpHost);
+    }
+
 
     public ZipCodeResponse getZipCodeInfo(String zipCode) {
         try {

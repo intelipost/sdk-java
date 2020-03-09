@@ -4,6 +4,7 @@ import br.com.intelipost.sdk.client.IntelipostClient;
 import br.com.intelipost.sdk.request.ShipmentOrderRequest;
 import br.com.intelipost.sdk.response.Response;
 import br.com.intelipost.sdk.response.ShipmentOrderResponse;
+import org.apache.http.HttpHost;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -14,6 +15,10 @@ public class ShipmentOrderResource extends Resource<ShipmentOrderRequest, Shipme
 
     public ShipmentOrderResource(String apiKey) {
         super(apiKey);
+    }
+
+    public ShipmentOrderResource(String apiKey, HttpHost httpHost) {
+        super(apiKey, httpHost);
     }
 
     public ShipmentOrderResponse getShipmentOrder(String orderNumber) {

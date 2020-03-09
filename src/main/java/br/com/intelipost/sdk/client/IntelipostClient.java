@@ -21,8 +21,10 @@ import br.com.intelipost.sdk.response.ShipmentOrderResponse;
 import br.com.intelipost.sdk.response.TrackingCodeResponse;
 import br.com.intelipost.sdk.response.TrackingDataResponse;
 import br.com.intelipost.sdk.response.ZipCodeResponse;
+import org.apache.http.HttpHost;
 
 import java.util.List;
+
 
 public class IntelipostClient {
 
@@ -36,14 +38,26 @@ public class IntelipostClient {
     private LabelResource labelResource;
 
     public IntelipostClient(String apiKey) {
-        zipCodeResource = new ZipCodeResource(apiKey);
-        trackingCodeResource = new TrackingCodeResource(apiKey);
-        trackingDataResource = new TrackingDataResource(apiKey);
-        shipmentOrderResource = new ShipmentOrderResource(apiKey);
-        shipmentOrderStatusResource = new ShipmentOrderStatusResource(apiKey);
-        quoteResource = new QuoteResource(apiKey);
-        plpResource = new PlpResource(apiKey);
-        labelResource = new LabelResource(apiKey);
+        zipCodeResource = new ZipCodeResource(apiKey, null);
+        trackingCodeResource = new TrackingCodeResource(apiKey, null);
+        trackingDataResource = new TrackingDataResource(apiKey, null);
+        shipmentOrderResource = new ShipmentOrderResource(apiKey, null);
+        shipmentOrderStatusResource = new ShipmentOrderStatusResource(apiKey, null);
+        quoteResource = new QuoteResource(apiKey, null);
+        plpResource = new PlpResource(apiKey, null);
+        labelResource = new LabelResource(apiKey, null);
+    }
+
+
+    public IntelipostClient(String apiKey, HttpHost httpHost) {
+        zipCodeResource = new ZipCodeResource(apiKey, httpHost);
+        trackingCodeResource = new TrackingCodeResource(apiKey, httpHost);
+        trackingDataResource = new TrackingDataResource(apiKey, httpHost);
+        shipmentOrderResource = new ShipmentOrderResource(apiKey, httpHost);
+        shipmentOrderStatusResource = new ShipmentOrderStatusResource(apiKey, httpHost);
+        quoteResource = new QuoteResource(apiKey, httpHost);
+        plpResource = new PlpResource(apiKey, httpHost);
+        labelResource = new LabelResource(apiKey, httpHost);
     }
 
     public ZipCodeResponse getZipCodeInfo(String zipCode) {

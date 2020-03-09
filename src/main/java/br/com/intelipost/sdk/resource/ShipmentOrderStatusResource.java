@@ -4,6 +4,7 @@ package br.com.intelipost.sdk.resource;
 import com.fasterxml.jackson.databind.JsonNode;
 import br.com.intelipost.sdk.request.ShipmentOrderStatusRequest;
 import br.com.intelipost.sdk.response.Response;
+import org.apache.http.HttpHost;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,6 +16,10 @@ public class ShipmentOrderStatusResource extends Resource<JsonNode, Object>{
 
     public ShipmentOrderStatusResource(String apiKey) {
         super(apiKey);
+    }
+
+    public ShipmentOrderStatusResource(String apiKey, HttpHost httpHost) {
+        super(apiKey, httpHost);
     }
 
     public Response setAsReadyToShip(List<ShipmentOrderStatusRequest> shipmentOrders) {

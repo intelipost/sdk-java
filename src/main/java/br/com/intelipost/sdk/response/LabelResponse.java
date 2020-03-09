@@ -11,7 +11,7 @@ import lombok.Data;
 public class LabelResponse {
 
     @JsonProperty("order_number")
-    private Long orderNumber;
+    private String orderNumber;
 
     @JsonProperty("shipment_order_volume_number")
     private Long shipmentOrderVolumeNumber;
