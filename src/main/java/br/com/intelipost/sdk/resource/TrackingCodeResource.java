@@ -3,6 +3,8 @@ package br.com.intelipost.sdk.resource;
 import br.com.intelipost.sdk.request.TrackingCodeRequest;
 import br.com.intelipost.sdk.response.Response;
 import br.com.intelipost.sdk.response.TrackingCodeResponse;
+import org.apache.http.HttpHost;
+import org.apache.http.client.methods.HttpPost;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,6 +14,10 @@ public class TrackingCodeResource extends Resource<TrackingCodeRequest, Tracking
 
     public TrackingCodeResource(String apiKey) {
         super(apiKey);
+    }
+
+    public TrackingCodeResource(String apiKey, HttpHost httpHost) {
+        super(apiKey, httpHost);
     }
 
     public TrackingCodeResponse getTrackingCode(TrackingCodeRequest trackingCodeRequest) {

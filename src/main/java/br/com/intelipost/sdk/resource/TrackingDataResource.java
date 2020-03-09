@@ -3,6 +3,7 @@ package br.com.intelipost.sdk.resource;
 import br.com.intelipost.sdk.request.TrackingDataRequest;
 import br.com.intelipost.sdk.response.Response;
 import br.com.intelipost.sdk.response.TrackingDataResponse;
+import org.apache.http.HttpHost;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,6 +14,11 @@ public class TrackingDataResource extends Resource<TrackingDataRequest, Tracking
     public TrackingDataResource(String apiKey) {
         super(apiKey);
     }
+
+    public TrackingDataResource(String apiKey, HttpHost httpHost) {
+        super(apiKey, httpHost);
+    }
+
 
     public TrackingDataResponse updateTrackingData(TrackingDataRequest trackingDataRequest) {
         try {

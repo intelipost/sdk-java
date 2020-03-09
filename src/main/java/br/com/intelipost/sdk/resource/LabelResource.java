@@ -1,5 +1,6 @@
 package br.com.intelipost.sdk.resource;
 
+import org.apache.http.HttpHost;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,6 +13,9 @@ public class LabelResource extends Resource<String, LabelResponse> {
 
     public LabelResource(String apiKey) {
         super(apiKey);
+    }
+    public LabelResource(String apiKey, HttpHost httpHost) {
+        super(apiKey, httpHost);
     }
 
     public LabelResponse getLabel(String orderNumber, Integer shipmentOrderVolumeNumber) {

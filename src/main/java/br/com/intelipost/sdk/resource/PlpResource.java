@@ -2,6 +2,7 @@ package br.com.intelipost.sdk.resource;
 
 import br.com.intelipost.sdk.request.PlpRequest;
 import br.com.intelipost.sdk.response.Response;
+import org.apache.http.HttpHost;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,6 +12,9 @@ public class PlpResource extends Resource<PlpRequest, Object> {
 
     public PlpResource(String apiKey) {
         super(apiKey);
+    }
+    public PlpResource(String apiKey, HttpHost httpHost) {
+        super(apiKey, httpHost);
     }
 
     public Response send(PlpRequest requestBody) {

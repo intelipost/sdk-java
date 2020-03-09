@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import br.com.intelipost.sdk.response.Response;
+import org.apache.http.HttpHost;
 import org.apache.http.client.fluent.Request;
 import org.apache.http.entity.ContentType;
 
@@ -15,9 +16,19 @@ public abstract class Resource<REQUEST, RESPONSE> {
 
     protected ObjectMapper objectMapper;
     protected String apiKey;
+    private HttpHost httpHost;
     private String apiUrl;
 
     public Resource(String apiKey) {
+        this.init(apiKey);
+    }
+
+    public Resource(String apiKey, HttpHost httpHost) {
+        this.init(apiKey);
+        this.httpHost = httpHost;
+    }
+
+    private void init(String apiKey) {
         this.objectMapper = new ObjectMapper();
         this.objectMapper.registerModule(new JavaTimeModule());
         this.objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
@@ -27,12 +38,15 @@ public abstract class Resource<REQUEST, RESPONSE> {
         this.apiUrl = "https://api.intelipost.com.br/api/v1";
     }
 
+
     protected Response doGetRequest(String path) throws Exception {
 
+
         JsonNode json = Request.Get(apiUrl + path)
-                                    .addHeader("api_key", apiKey)
-                                    .execute()
-                                    .handleResponse(httpResponse -> objectMapper.readTree(httpResponse.getEntity().getContent()));
+                .addHeader("api_key", apiKey)
+                .viaProxy(this.httpHost)
+                .execute()
+                .handleResponse(httpResponse -> objectMapper.readTree(httpResponse.getEntity().getContent()));
 
         return processResponse(json);
     }
@@ -42,6 +56,7 @@ public abstract class Resource<REQUEST, RESPONSE> {
 
         JsonNode json = Request.Post(apiUrl + path)
                                     .addHeader("api_key", apiKey)
+                                    .viaProxy(this.httpHost)
                                     .bodyString(objectMapper.writeValueAsString(requestBody), ContentType.APPLICATION_JSON)
                                     .execute()
                                     .handleResponse(httpResponse -> objectMapper.readTree(httpResponse.getEntity().getContent()));

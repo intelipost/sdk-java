@@ -34,6 +34,11 @@ public class ShipmentOrderCustomerDSL {
         return this;
     }
 
+    public ShipmentOrderCustomerDSL cellPhone(String cellPhone){
+        customer.setCellphone(cellPhone);
+        return this;
+    }
+
     public ShipmentOrderCustomerDSL federalTaxPayerId(String federalTaxPayerId){
         customer.setTaxPayerId(federalTaxPayerId);
         return this;
